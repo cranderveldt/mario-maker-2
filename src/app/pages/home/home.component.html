@@ -1,21 +1,29 @@
 <section class="container">
   <h1>Most Recently Played Levels</h1>
-  <div class="bm-32" *ngFor="let level of levels | async">
-    {{ level.title }}
-  </div>
+  <ul class="bm-32">
+    <li class="bm-8" *ngFor="let level of levels | async">
+      {{ level.title }} ({{ level.id }})
+    </li>
+  </ul>
   
   <h1>Top Levels of the Week</h1>
-  <div class="bm-32" *ngFor="let level of levels | async">
-    {{ level.title }}
-  </div>
+  <ul class="bm-32">
+    <li class="bm-8" *ngFor="let level of levels | async">
+      {{ level.title }} ({{ level.id }})
+    </li>
+  </ul>
 
   <h1>Top Levels of the Month</h1>
-  <div class="bm-32" *ngFor="let level of levels | async">
-    {{ level.title }}
-  </div>
+  <ul class="bm-32">
+    <li class="bm-8" *ngFor="let level of levels | async">
+      {{ level.title }} ({{ level.id }})
+    </li>
+  </ul>
 
   <h1>Top Levels All-Time</h1>
-  <div class="bm-32" *ngFor="let level of levels | async">
-    {{ level.title }}
-  </div>
+  <ul class="bm-32">
+    <li class="bm-8" *ngFor="let level of levels | async">
+      {{ level.title }} ({{ level.id }})
+    </li>
+  </ul>
 </section>

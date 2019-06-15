@@ -16,6 +16,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.levels = this.store.listLevels();
+    this.levels = this.store.listPlayedLevels();
   }
 }

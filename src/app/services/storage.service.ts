@@ -17,6 +17,12 @@ export class StorageService {
     return this.db.collection<Level>('levels').valueChanges({ idField: 'id' });
   }
 
+  public listPlayedLevels(): Observable<Level[]> {
+    return this.db.collection<Level>('levels', ref => {
+      return ref.where('playedAt', '>', 0).orderBy('playedAt', 'desc');
+    }).valueChanges({ idField: 'id' });
+  }
+
   public addLevel(level: Level): Promise<void> {
     const id = level.id;
     const data = Object.assign({}, level);
