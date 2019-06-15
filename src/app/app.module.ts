@@ -7,16 +7,18 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-import { HomeComponent } from './pages/home/home.component';
+import { LevelIndexComponent } from './pages/levels/index/index.component';
 import { LevelEditComponent } from './pages/levels/edit/edit.component';
 import { LevelAddComponent } from './pages/levels/add/add.component';
+import { MmDatestampPipe } from './pipes/mm-datestamp.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    LevelIndexComponent,
     LevelEditComponent,
-    LevelAddComponent
+    LevelAddComponent,
+    MmDatestampPipe
   ],
   imports: [
     BrowserModule,

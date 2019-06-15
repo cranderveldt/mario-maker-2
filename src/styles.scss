@@ -76,6 +76,7 @@ h1 {
 
 .container {
   padding: 16px;
+  max-width: 768px;
 }
 
 .bm-8 {
@@ -88,7 +89,9 @@ h1 {
   margin-bottom: 32px;
 }
 
-input[type=text], textarea {
+input[type=text],
+input[type=number],
+textarea {
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 18px;
@@ -136,6 +139,16 @@ textarea {
   }
 }
 
+.flex-static {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.flex-dynamic {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
 .btn {
   padding: 8px 16px;
   background: #222;
@@ -144,7 +157,13 @@ textarea {
   display: inline-block;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
   &:hover {
     background: #333;
   }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
 }

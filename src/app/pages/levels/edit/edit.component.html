@@ -1,3 +1,21 @@
-<p>
-  edit works!
-</p>
+<section class="container" *ngIf="level">
+  <h1>Editing {{ level.title }} ({{ level.id }})</h1>
+  <div class="flex-row-all flex-wrap flex-gutters-16">
+    <div class="flex-col-6 bm-16">
+      <input type="number" [(ngModel)]="level.rating" placeholder="Rating (1-10)" max=10 min=1>
+    </div>
+    <div class="flex-col-6 bm-16">
+      <input type="number" [(ngModel)]="level.difficulty" placeholder="Difficulty (1-10)" max=10 min=1>
+    </div>
+    <div class="flex-col-12 bm-16">
+      <textarea [(ngModel)]="level.notes" placeholder="Any notes?"></textarea>
+    </div>
+    <div class="flex-col">
+      <button class="btn" (click)="markAsPlayed()">{{ level.playedAt > 0 ? 'Update Info' : 'Played It!' }}</button>
+    </div>
+    <div class="flex-col" *ngIf="level.playedAt > 0">
+      Played level on {{ level.playedAt | mmDatestamp }}
+    </div>
+  </div>
+</section>
+  

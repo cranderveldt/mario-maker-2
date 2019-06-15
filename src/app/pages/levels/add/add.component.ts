@@ -3,7 +3,7 @@ import { Level } from 'src/app/models/level';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
-  selector: 'app-add',
+  selector: 'mm-level-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss']
 })

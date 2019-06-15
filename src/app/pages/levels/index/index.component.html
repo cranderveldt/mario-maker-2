@@ -1,0 +1,61 @@
+<section class="container">
+  <h1>Most Recently Played Levels</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let level of recentLevels | async">
+      <span class="flex-col">
+        {{ level.rating }} / 10 :: {{ level.title }} ({{ level.id }})
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/levels/{{ level.id }}">View</a>
+      </span>
+    </li>
+  </ul>
+
+  <h1>Next up unplayed levels</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let level of newLevels | async">
+      <span class="flex-col">
+        {{ level.title }} ({{ level.id }})
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/levels/{{ level.id }}/edit">Play</a>
+      </span>
+    </li>
+  </ul>
+  
+  <h1>Top Levels of the Week</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let level of topWeekLevels | async">
+      <span class="flex-col">
+        {{ level.rating }} / 10 :: {{ level.title }} ({{ level.id }})
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/levels/{{ level.id }}">View</a>
+      </span>
+    </li>
+  </ul>
+
+  <h1>Top Levels of the Month</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let level of topMonthLevels | async">
+      <span class="flex-col">
+        {{ level.rating }} / 10 :: {{ level.title }} ({{ level.id }})
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/levels/{{ level.id }}">View</a>
+      </span>
+    </li>
+  </ul>
+
+  <h1>Top Levels All-Time</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let level of topLevels | async">
+      <span class="flex-col">
+        {{ level.rating }} / 10 :: {{ level.title }} ({{ level.id }})
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/levels/{{ level.id }}">View</a>
+      </span>
+    </li>
+  </ul>
+</section>
