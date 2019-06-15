@@ -1,4 +1,4 @@
-# Mm
+# Mario Maker 2 Level Rating Aggregator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 

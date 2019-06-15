@@ -1,0 +1,19 @@
+<section class="container">
+  <h1>Add New Level</h1>
+  <div class="flex-row-all flex-wrap flex-gutters-16">
+    <div class="flex-col-4 bm-16">
+      <input type="text" [(ngModel)]="level.id" placeholder="Level ID">
+    </div>
+    <div class="flex-col-4 bm-16">
+      <input type="text" [(ngModel)]="level.title" placeholder="Title">
+    </div>
+    <div class="flex-col-4 bm-16">
+      <input type="text" [(ngModel)]="level.creator" placeholder="Creator name">
+    </div>
+    <div class="flex-col-12 bm-16">
+      <textarea [(ngModel)]="level.summary" placeholder="Describe the level"></textarea>
+    </div>
+  </div>
+  <button class="btn" (click)="submitLevel()">Add My Level!</button>
+</section>
+  

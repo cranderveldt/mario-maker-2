@@ -1,0 +1,21 @@
+<section class="container">
+  <h1>Most Recently Played Levels</h1>
+  <div class="bm-32" *ngFor="let level of levels | async">
+    {{ level.title }}
+  </div>
+  
+  <h1>Top Levels of the Week</h1>
+  <div class="bm-32" *ngFor="let level of levels | async">
+    {{ level.title }}
+  </div>
+
+  <h1>Top Levels of the Month</h1>
+  <div class="bm-32" *ngFor="let level of levels | async">
+    {{ level.title }}
+  </div>
+
+  <h1>Top Levels All-Time</h1>
+  <div class="bm-32" *ngFor="let level of levels | async">
+    {{ level.title }}
+  </div>
+</section>
