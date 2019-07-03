@@ -1,0 +1,19 @@
+<section class="container">
+  <h2 class="h24 bm-16">Mario Maker 2 Lists</h2>
+  <div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+  </div>
+</section>
+
+<ng-template #guest>
+  <button class="btn" (click)="auth.googleLogin()">Login with Google</button>
+</ng-template>
+
+<ng-template #authenticated>
+  <div class="bm-16">
+    <a routerLink="/sets" class="btn">View all lists</a>
+  </div>
+  <div>
+    <button (click)="auth.signOut()" class="btn">Logout</button>
+  </div>
+</ng-template>

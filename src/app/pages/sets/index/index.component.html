@@ -1,0 +1,26 @@
+<section class="container">
+  <h1>Your Lists</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let set of userSets | async">
+      <span class="flex-col">
+        {{ set.name }}
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/sets/{{ set.id }}">View</a>
+      </span>
+    </li>
+  </ul>
+
+  <h1>All Lists</h1>
+  <ul class="bm-32">
+    <li class="bm-8 flex-row-all flex-gutters-16" *ngFor="let set of globalSets | async">
+      <span class="flex-col">
+        {{ set.name }}
+      </span>
+      <span class="flex-col flex-static">
+        <a class="btn btn-block" routerLink="/sets/{{ set.id }}">View</a>
+      </span>
+    </li>
+  </ul>
+  <button class="btn" (click)="auth.signOut()">Logout</button>
+</section>

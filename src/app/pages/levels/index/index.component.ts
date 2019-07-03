@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Level } from 'src/app/models/level';
 import { map } from 'rxjs/operators';
 import { subDays } from 'date-fns';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'mm-level-index',
@@ -18,7 +19,8 @@ export class LevelIndexComponent implements OnInit {
   public newLevels: Observable<Level[]>;
 
   constructor(
-    public store: StorageService
+    public store: StorageService,
+    public auth: AuthService,
   ) { }
 
   ngOnInit() {

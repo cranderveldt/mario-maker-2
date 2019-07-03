@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "app/abstracts/variables.scss";
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -79,14 +80,100 @@ h1 {
   max-width: 768px;
 }
 
-.bm-8 {
-  margin-bottom: 8px;
+@each $name, $value in (
+  "base": #555,
+  "ash": #888,
+  "red": rgb(216, 15, 15)
+) {
+  .#{$name}-color {
+    color: #{$value}
+  }
+  .#{$name}-bg {
+    background-color: #{$value}
+  }
 }
-.bm-16 {
-  margin-bottom: 16px;
+
+
+@each $schar, $space in (p: padding, m: margin) {
+  @each $number in (8, 16, 32, 64) {
+    @each $dchar, $dir in (t: top, r: right, l: left, b: bottom) {
+      .#{$dchar}#{$schar}-#{$number} {
+        #{$space}-#{$dir}: #{$number}px;
+      }
+    }
+    .v#{$schar}-#{$number} {
+      #{$space}-top: #{$number}px;
+      #{$space}-bottom: #{$number}px;
+    }
+    .h#{$schar}-#{$number} {
+      #{$space}-left: #{$number}px;
+      #{$space}-right: #{$number}px;
+    }
+    .f#{$schar}-#{$number} {
+      #{$space}: #{$number}px;
+    }
+  }
+
+  @each $number in (16, 32, 64) {
+    @each $dchar, $dir in (t: top, r: right, l: left, b: bottom) {
+      .#{$dchar}#{$schar}r-#{$number} {
+        #{$space}-#{$dir}: ($number / 2) * 1px;
+        @include above-width($tablet) {
+          #{$space}-#{$dir}: #{$number}px;
+        }
+      }
+    }
+    .v#{$schar}r-#{$number} {
+      #{$space}-top: ($number / 2) * 1px;
+      #{$space}-bottom: ($number / 2) * 1px;
+      @include above-width($tablet) {
+        #{$space}-top: #{$number}px;
+        #{$space}-bottom: #{$number}px;
+      }
+    }
+    .h#{$schar}r-#{$number} {
+      #{$space}-left: ($number / 2) * 1px;
+      #{$space}-right: ($number / 2) * 1px;
+      @include above-width($tablet) {
+        #{$space}-left: #{$number}px;
+        #{$space}-right: #{$number}px;
+      }
+    }
+    .f#{$schar}r-#{$number} {
+      #{$space}: ($number / 2) * 1px;
+      @include above-width($tablet) {
+        #{$space}: #{$number}px;
+      }
+    }
+  }
 }
-.bm-32 {
-  margin-bottom: 32px;
+
+$all-headers: (
+  48: 36,
+  24: 20,
+  20: 18,
+  18: 16,
+  16: 14,
+  14: 12
+);
+
+// h24 - responsive header starting at 24px on desktop with 1 line-height
+// f24 - unresponsive header at 24px with 1 line-height
+// s24 - static text at 24px with default line height
+// p24 - responsive text starting at 24px with default line height
+@each $large, $small in ($all-headers) {
+  .h#{$large}, .i#{$large} {
+    @include header-size($large, $large, $small, $small, 1);
+  }
+  .f#{$large} {
+    @include font-size($large, 1);
+  }
+  .s#{$large} {
+    @include font-size($large);
+  }
+  .p#{$large} {
+    @include header-size($large, $large, $small, $small);
+  }
 }
 
 input[type=text],

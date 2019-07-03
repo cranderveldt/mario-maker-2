@@ -45,4 +45,15 @@ export class StorageService {
     delete data.id;
     return this.db.collection<Level>('levels').doc(level.id).update(data);
   }
+
+  public listSets(): Observable<any[]> {
+    return this.db.collection<any>('sets').valueChanges({ idField: 'id' });
+  }
+
+  public listUserSets(userId: string): Observable<any[]> {
+    console.log(userId)
+    return this.db.collection<any>('sets', ref => {
+      return ref.where('ownerId', '==', userId);
+    }).valueChanges({ idField: 'id' });
+  }
 }
