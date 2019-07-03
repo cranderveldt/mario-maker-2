@@ -35,3 +35,22 @@ $mobile: 480px;
   font-size: ($sizeValue * 1) + px;
   line-height: $line-h;
 }
+
+$ash-color: #888;
+$base-color: #555;
+
+@each $name, $value in (
+  "base": $base-color,
+  "ash": $ash-color,
+  "red": rgb(216, 15, 15),
+  "green": rgb(11, 131, 81)
+) {
+  .#{$name}-color {
+    color: #{$value}
+  }
+  .#{$name}-bg {
+    background-color: #{$value}
+  }
+}
+
+ 

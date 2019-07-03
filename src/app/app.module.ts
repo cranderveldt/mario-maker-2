@@ -16,6 +16,8 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SetIndexComponent } from './pages/sets/index/index.component';
 import { SetShowComponent } from './pages/sets/show/show.component';
+import { SetAddLevelComponent } from './pages/sets/add-level/add-level.component';
+import { SetEditLevelComponent } from './pages/sets/edit-level/edit-level.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SetShowComponent } from './pages/sets/show/show.component';
     MmDatestampPipe,
     HomeComponent,
     SetIndexComponent,
-    SetShowComponent
+    SetShowComponent,
+    SetAddLevelComponent,
+    SetEditLevelComponent
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,8 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-
   user$: Observable<any>;
+  public userId: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -24,6 +24,7 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
+          this.userId = user.uid;
           return this.afs.doc(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);

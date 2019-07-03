@@ -80,20 +80,6 @@ h1 {
   max-width: 768px;
 }
 
-@each $name, $value in (
-  "base": #555,
-  "ash": #888,
-  "red": rgb(216, 15, 15)
-) {
-  .#{$name}-color {
-    color: #{$value}
-  }
-  .#{$name}-bg {
-    background-color: #{$value}
-  }
-}
-
-
 @each $schar, $space in (p: padding, m: margin) {
   @each $number in (8, 16, 32, 64) {
     @each $dchar, $dir in (t: top, r: right, l: left, b: bottom) {
@@ -217,6 +203,19 @@ textarea {
   flex-wrap: wrap;
 }
 
+.flex-spaced {
+  justify-content: space-between;
+}
+
+.flex-gutters-8 {
+  margin-left: -4px;
+  margin-right: -4px;
+  & > [class*="flex-col"] {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
 .flex-gutters-16 {
   margin-left: -8px;
   margin-right: -8px;
@@ -248,6 +247,29 @@ textarea {
   &:hover {
     background: #333;
   }
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-ash {
+  background: $ash-color;
+  &:hover {
+    background: darken($ash-color, 10%);
+  }
+}
+
+.btn-icon {
+  background: transparent;
+  padding: 0;
+  color: #222;
+  &:hover {
+    background: transparent;
+  }
+}
+
+.btn-icon-ash {
+  color: $ash-color;
 }
 
 .btn-block {

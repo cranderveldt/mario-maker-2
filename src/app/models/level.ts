@@ -9,4 +9,6 @@ export class Level {
   rating?: number;
   notes?: string;
   difficulty?: number;
+  ownerId?: string;
+  owner?: boolean;
 }
