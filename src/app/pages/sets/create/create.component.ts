@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SetCreateComponent implements OnInit {
   public set: MMSet = new MMSet();
+  public error: string;
 
   constructor(
     public store: StorageService,
@@ -24,9 +25,17 @@ export class SetCreateComponent implements OnInit {
   }
 
   create()  {
-    this.store.createSet(this.set).then((data) => {
-      this.router.navigate([`/sets/${data.id}`]);
-    });
+    if (this.set.name) {
+      return this.error = 'You must choose a name for the list.';
+    }
+    this.error = null;
+    try {
+      this.store.createSet(this.set).then((data) => {
+        this.router.navigate([`/sets/${data.id}`]);
+      });
+    } catch {
+      this.error = 'There was an error creating this list.';
+    }
   }
 
 }
