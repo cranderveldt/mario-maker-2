@@ -4,7 +4,7 @@ import { LevelIndexComponent } from './pages/levels/index/index.component';
 import { LevelEditComponent } from './pages/levels/edit/edit.component';
 import { LevelAddComponent } from './pages/levels/add/add.component';
 import { HomeComponent } from './pages/home/home.component';
-import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { SetIndexComponent } from './pages/sets/index/index.component';
 import { SetShowComponent } from './pages/sets/show/show.component';
 
