@@ -62,6 +62,15 @@ export class StorageService {
     return this.db.collection('sets').doc<MMSet>(id).valueChanges();
   }
 
+  public createSet(set: MMSet): Promise<any> {
+    const data = Object.assign({}, set);
+    return this.db.collection('sets').add(data);
+  }
+
+  public deleteSet(setId: string): Promise<void> {
+    return this.db.collection('sets').doc(setId).delete();
+  }
+
   public listSetLevels(setId: string): Observable<Level[]> {
     return this.db.collection('sets').doc(setId).collection<Level>('levels').valueChanges({ idField: 'id' });
   }

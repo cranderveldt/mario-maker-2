@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StorageService } from 'src/app/services/storage.service';
 import { MMSet } from 'src/app/models/set';
@@ -20,6 +20,7 @@ export class SetShowComponent implements OnInit {
     public route: ActivatedRoute,
     public store: StorageService,
     public auth: AuthService,
+    public router: Router,
   ) { }
 
   ngOnInit() {
@@ -32,6 +33,15 @@ export class SetShowComponent implements OnInit {
     const result = window.confirm('Are you sure you want to delete this level forever?');
     if (result) {
       this.store.deleteSetLevel(levelId, this.setId);
+    }
+  }
+
+  deleteSet() {
+    const result = window.confirm('Are you sure you want to delete this list forever?');
+    if (result) {
+      this.store.deleteSet(this.setId).then(() => {
+        this.router.navigate(['/sets']);
+      })
     }
   }
 

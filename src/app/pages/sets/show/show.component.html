@@ -1,5 +1,12 @@
 <section class="container" *ngIf="set$ | async; let set">
-  <h1>{{ set.name }}</h1>
+  <div class="flex-row-all">
+    <div class="flex-col flex-dynamic">
+      <h1>{{ set.name }}</h1>
+    </div>
+    <div class="flex-col" *ngIf="auth.user$ | async; let user">
+      <button *ngIf="set.ownerId === user.uid" (click)="deleteSet()" class="btn btn-icon btn-icon-ash"><i class="material-icons">delete</i></button>
+    </div>
+  </div>
   <ul class="bm-32">
     <li class="p18" *ngFor="let level of levels$ | async">
       <div class="flex-row-all flex-gutters-8 flex-spaced">
@@ -29,5 +36,5 @@
     <a routerLink="/sets/{{ setId }}/levels/add" class="btn">Add level</a>
   </ng-template>
 
-  <a class="btn" routerLink="/sets">Back</a>
+  <a class="btn btn-ash" routerLink="/sets">Back</a>
 </section>

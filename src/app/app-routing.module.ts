@@ -9,6 +9,7 @@ import { SetIndexComponent } from './pages/sets/index/index.component';
 import { SetShowComponent } from './pages/sets/show/show.component';
 import { SetAddLevelComponent } from './pages/sets/add-level/add-level.component';
 import { SetEditLevelComponent } from './pages/sets/edit-level/edit-level.component';
+import { SetCreateComponent } from './pages/sets/create/create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'levels/add', component: LevelAddComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'levels/:id/edit', component: LevelEditComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets', component: SetIndexComponent, ...canActivate(redirectUnauthorizedTo([''])) },
+  { path: 'sets/create', component: SetCreateComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets/:id', component: SetShowComponent },
   { path: 'sets/:id/levels/add', component: SetAddLevelComponent },
   { path: 'sets/:sid/levels/:lid/edit', component: SetEditLevelComponent },

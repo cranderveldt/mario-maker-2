@@ -18,6 +18,7 @@ import { SetIndexComponent } from './pages/sets/index/index.component';
 import { SetShowComponent } from './pages/sets/show/show.component';
 import { SetAddLevelComponent } from './pages/sets/add-level/add-level.component';
 import { SetEditLevelComponent } from './pages/sets/edit-level/edit-level.component';
+import { SetCreateComponent } from './pages/sets/create/create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SetEditLevelComponent } from './pages/sets/edit-level/edit-level.compon
     SetIndexComponent,
     SetShowComponent,
     SetAddLevelComponent,
-    SetEditLevelComponent
+    SetEditLevelComponent,
+    SetCreateComponent
   ],
   imports: [
     BrowserModule,
