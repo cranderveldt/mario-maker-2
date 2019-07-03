@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Level } from '../models/level';
+import { MMSet } from '../models/set';
 
 @Injectable({
   providedIn: 'root'
@@ -46,14 +47,21 @@ export class StorageService {
     return this.db.collection<Level>('levels').doc(level.id).update(data);
   }
 
-  public listSets(): Observable<any[]> {
-    return this.db.collection<any>('sets').valueChanges({ idField: 'id' });
+  public listSets(): Observable<MMSet[]> {
+    return this.db.collection<MMSet>('sets').valueChanges({ idField: 'id' });
   }
 
-  public listUserSets(userId: string): Observable<any[]> {
-    console.log(userId)
-    return this.db.collection<any>('sets', ref => {
+  public listUserSets(userId: string): Observable<MMSet[]> {
+    return this.db.collection<MMSet>('sets', ref => {
       return ref.where('ownerId', '==', userId);
     }).valueChanges({ idField: 'id' });
+  }
+
+  public getSet(id: string): Observable<MMSet> {
+    return this.db.collection('sets').doc<MMSet>(id).valueChanges();
+  }
+
+  public listSetLevels(setId: string): Observable<Level[]> {
+    return this.db.collection('sets').doc(setId).collection<Level>('levels').valueChanges({ idField: 'id' });
   }
 }

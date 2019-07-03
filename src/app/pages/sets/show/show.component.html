@@ -1,3 +1,11 @@
-<p>
-  show works!
-</p>
+<section class="container" *ngIf="set$ | async; let set">
+  <h1>{{ set.name }}</h1>
+  <ul class="bm-32">
+    <li class="p18" *ngFor="let level of levels$ | async">
+      <div><strong>{{ level.id }}</strong> - {{ level.title }} - Made by {{ level.creator }}</div>
+      <div>{{ level.summary }}</div>
+    </li>
+  </ul>
+
+  <a class="btn" routerLink="/levels">Back</a>
+</section>
