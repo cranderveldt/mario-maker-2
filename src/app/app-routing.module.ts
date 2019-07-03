@@ -13,14 +13,14 @@ import { SetCreateComponent } from './pages/sets/create/create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'levels', component: LevelIndexComponent, ...canActivate(redirectUnauthorizedTo([''])) },
-  { path: 'levels/add', component: LevelAddComponent, ...canActivate(redirectUnauthorizedTo([''])) },
-  { path: 'levels/:id/edit', component: LevelEditComponent, ...canActivate(redirectUnauthorizedTo([''])) },
+  // { path: 'levels', component: LevelIndexComponent, ...canActivate(redirectUnauthorizedTo([''])) },
+  // { path: 'levels/add', component: LevelAddComponent, ...canActivate(redirectUnauthorizedTo([''])) },
+  // { path: 'levels/:id/edit', component: LevelEditComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets', component: SetIndexComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets/create', component: SetCreateComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets/:id', component: SetShowComponent },
-  { path: 'sets/:id/levels/add', component: SetAddLevelComponent },
-  { path: 'sets/:sid/levels/:lid/edit', component: SetEditLevelComponent },
+  { path: 'sets/:id/levels/add', component: SetAddLevelComponent, ...canActivate(redirectUnauthorizedTo([''])) },
+  { path: 'sets/:sid/levels/:lid/edit', component: SetEditLevelComponent, ...canActivate(redirectUnauthorizedTo([''])) },
 ];
 
 @NgModule({
