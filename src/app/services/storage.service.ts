@@ -72,7 +72,9 @@ export class StorageService {
   }
 
   public listSetLevels(setId: string): Observable<Level[]> {
-    return this.db.collection('sets').doc(setId).collection<Level>('levels').valueChanges({ idField: 'id' });
+    return this.db.collection('sets').doc(setId).collection<Level>('levels', ref => {
+      return ref.orderBy('createdAt', 'asc');
+    }).valueChanges({ idField: 'id' });
   }
 
   public addSetLevel(level: Level, setId: string): Promise<void> {
