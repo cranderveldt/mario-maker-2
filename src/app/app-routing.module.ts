@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'sets', component: SetIndexComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets/create', component: SetCreateComponent, ...canActivate(redirectUnauthorizedTo([''])) },
   { path: 'sets/:id', component: SetShowComponent },
-  { path: 'sets/:id/levels/add', component: SetAddLevelComponent, ...canActivate(redirectUnauthorizedTo([''])) },
+  { path: 'sets/:id/levels/add', component: SetAddLevelComponent },
   { path: 'sets/:sid/levels/:lid/edit', component: SetEditLevelComponent, ...canActivate(redirectUnauthorizedTo([''])) },
 ];
 

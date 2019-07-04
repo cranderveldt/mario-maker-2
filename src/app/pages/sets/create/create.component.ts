@@ -25,7 +25,7 @@ export class SetCreateComponent implements OnInit {
   }
 
   create()  {
-    if (this.set.name) {
+    if (!this.set.name) {
       return this.error = 'You must choose a name for the list.';
     }
     this.error = null;

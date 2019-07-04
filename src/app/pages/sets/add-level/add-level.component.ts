@@ -23,7 +23,11 @@ export class SetAddLevelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.auth.user$.pipe(take(1)).subscribe((user) => this.level.ownerId = user.uid);
+    this.auth.user$.pipe(take(1)).subscribe((user) => {
+      if (user) {
+        this.level.ownerId = user.uid;
+      }
+    });
     this.setId = this.route.snapshot.paramMap.get('id');
   }
 

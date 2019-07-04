@@ -15,9 +15,10 @@
           <div>{{ level.summary }}</div>
         </div>
         <div class="flex-col" *ngIf="auth.user$ | async; let user">
-          <div *ngIf="user.uid === level.ownerId">
+          <div *ngIf="user.uid === level.ownerId || user.uid === set.ownerId">
             <a routerLink="/sets/{{ setId }}/levels/{{ level.id }}/edit" class="btn btn-icon btn-icon-ash"><i class="material-icons">edit</i></a>
             <button (click)="deleteLevel(level.id)" class="btn btn-icon btn-icon-ash"><i class="material-icons">delete</i></button>
+            <button *ngIf="false && user.uid === set.ownerId" class="btn btn-icon btn-icon-ash"><i class="material-icons">play_arrow</i></button>
           </div>
         </div>
       </div>
@@ -25,16 +26,8 @@
   </ul>
 
   <div class="bm-16">
-    <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
-  </div>
-
-  <ng-template #guest>
-    <button class="btn" (click)="auth.googleLogin()">Login to add to this list</button>
-  </ng-template>
-  
-  <ng-template #authenticated>
     <a routerLink="/sets/{{ setId }}/levels/add" class="btn">Add level</a>
-  </ng-template>
+  </div>
 
   <a class="btn btn-ash" routerLink="/sets">Back</a>
 </section>
